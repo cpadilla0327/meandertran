@@ -1,2 +1,2 @@
 # meandertran
-A Kinoshita meander centerline generator written in Fortran
+A Kinoshita meander centerline generator written in Fortran.
