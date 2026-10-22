@@ -3,16 +3,18 @@ module kinoshita_class
   use rng
   implicit none
   private :: pi
-  real(dp), parameter :: pi = 3.14159265358979
+  real(dp), parameter :: pi = 3.141592653589793
   
   type :: Kinoshita
      real(dp), allocatable :: x(:), y(:), z(:), zeta(:)
      real(dp) :: w, d, theta0, ds, wavelength, js, jf
      integer :: direction, nbends
+
    contains
      procedure :: initialize
      procedure :: generate
      procedure :: export
+
   end type Kinoshita
 
 contains
@@ -23,7 +25,7 @@ contains
     self%w = rand_real(80.0_dp, 120.0_dp)
     self%d = rand_real(4.0_dp, 8.0_dp)
     self%theta0 = rand_real(30.0_dp, 60.0_dp)
-    self%wavelength = rand_real(10 * self%w, 15 * self%w)
+    self%wavelength = 10.9_dp * self%w**(1.01_dp)  ! From Stream Stabilization Handbook(Biedenharn et al., 1997)
     self%ds = self%wavelength/100
     self%nbends = rand_int(5, 10)
     self%js = rand_real(0.0_dp, 1.0_dp/32.0_dp)
