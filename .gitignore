@@ -1,0 +1,7 @@
+*
+!.gitignore
+!Makefile
+!src/
+!src/*
+!data/
+!data/input
