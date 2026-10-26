@@ -30,9 +30,9 @@ contains
 
     call random_number(r)
     if (r < 0.5) then
-       val = a
+        val = a
     else
-       val = b
+        val = b
     end if
 
   end function rand_choice

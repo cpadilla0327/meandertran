@@ -1,1 +1,9 @@
-1   ! Number of samples to generate
+1                       Number of samples to generate
+-1, 1                   Meander direction
+3, 5                    Range for number of bends
+80, 120                 Range for width (m)
+4, 8                    Range for depth (m)
+0, 0.001                Range for slope (dimensionless)
+30, 120                 Range for meander deflection theta (deg)
+-0.03125, 0.03125       Skewness coefficient
+0, 0.00520              Flatness coefficient
