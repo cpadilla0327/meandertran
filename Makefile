@@ -5,7 +5,7 @@ LDFLAGS = -static
 
 SRC = src
 BUILD = build
-TARGET = $(BUILD)/kinoshitran
+TARGET = $(BUILD)/meandertran
 
 .PHONY: all build run clean dir
 
