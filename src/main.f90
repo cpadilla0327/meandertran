@@ -24,7 +24,7 @@ program main
 
     ! --- Export to current channel to .csv ---
     call ch%export_csv(i)
-    
+
     write (*, 100, advance="no") achar(13), "Generating samples... ", i, '/', params_int(1)
     100 format (a, a, i0, a, i0)
 
@@ -44,7 +44,6 @@ program main
 
     ! --- Read input.txt ---
     open(newunit=io, file="data/input", status="old", action="read", iostat = stat, iomsg=msg)
-
     if (stat /= 0) then 
     print *, trim(msg) 
     stop
@@ -52,18 +51,22 @@ program main
 
     ! --- Read integer inputs (number of samples, bends and direction) ---
     do i = 1, size(inputs_int)
-    if (i == 1 ) then 
-    read(io,*) inputs_int(i)
-    else if (mod(i,2) == 0) then
-    read(io,*) inputs_int(i), inputs_int(i+1)
-    else if (i == size(inputs_int)) then
-    exit
-    end if  
+
+      if (i == 1 ) then 
+        read(io,*) inputs_int(i)
+
+      else if (mod(i,2) == 0) then
+        read(io,*) inputs_int(i), inputs_int(i+1)
+
+      else if (i == size(inputs_int)) then
+        exit
+        
+      end if  
     end do
 
     ! --- Read real inputs (width, depth, slope, theta0, ds, wavelength, js, jf) ---
     do i = 1, size(inputs_real), 2
-    read(io,*) inputs_real(i), inputs_real(i+1)
+      read(io,*) inputs_real(i), inputs_real(i+1)
     end do
 
     close(io)
